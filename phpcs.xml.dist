@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<ruleset name="Panelladikes Widgets">
+	<description>Coding standards for Panelladikes Widgets.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/dist/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+	<arg name="parallel" value="8"/>
+
+	<config name="minimum_wp_version" value="6.5"/>
+	<config name="testVersion" value="8.2-"/>
+
+	<rule ref="WordPress"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="panelladikes-widgets"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="Panelladikes\Widgets"/>
+				<element value="panelladikes"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Base64 is used for Ed25519 keys and signatures, not to hide code. -->
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode">
+		<severity>0</severity>
+	</rule>
+
+	<!-- Tests follow PHPUnit conventions. -->
+	<rule ref="Universal.Files.SeparateFunctionsFromOO">
+		<exclude-pattern>/tests/bootstrap.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions.json_encode_json_encode">
+		<exclude-pattern>/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<exclude-pattern>/tests/bootstrap.php</exclude-pattern>
+	</rule>
+</ruleset>

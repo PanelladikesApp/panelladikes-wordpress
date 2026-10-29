@@ -1,0 +1,26 @@
+# Dependencies and build output
+/node_modules/
+/vendor/
+/build/
+/dist/
+*.zip
+
+# Secrets and keys: never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.sql
+*service-account*.json
+*credentials*.json
+
+# Tooling and OS
+.phpunit.result.cache
+.phpcs-cache
+.wp-env.override.json
+.DS_Store
+.idea/
+.vscode/
+*.log

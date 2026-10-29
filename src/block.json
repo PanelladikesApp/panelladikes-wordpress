@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "panelladikes/widget",
+	"version": "1.0.0",
+	"title": "Panelladikes Widget",
+	"category": "widgets",
+	"description": "Show a Panelladikes widget: points calculator, admission bases, exam schedule, school details or Mixanografiko.",
+	"keywords": [ "panelladikes", "calculator", "bases", "school", "exams" ],
+	"textdomain": "panelladikes-widgets",
+	"attributes": {
+		"type": { "type": "string", "enum": [ "calculator", "baseis", "program", "sxoli", "mixanografiko" ], "default": "calculator" },
+		"edu": { "type": "string", "enum": [ "gel", "epal" ], "default": "gel" },
+		"schoolId": { "type": "number", "default": 0 },
+		"schoolName": { "type": "string", "default": "" },
+		"pedio": { "type": "number", "default": 0 },
+		"theme": { "type": "string", "enum": [ "auto", "light", "dark" ], "default": "auto" },
+		"width": { "type": "string", "default": "" },
+		"align": { "type": "string", "enum": [ "left", "center", "right" ], "default": "left" },
+		"height": { "type": "string", "default": "" },
+		"radius": { "type": "number", "default": 12 },
+		"shadow": { "type": "string", "enum": [ "none", "sm", "md", "lg" ], "default": "none" },
+		"border": { "type": "boolean", "default": false },
+		"lazy": { "type": "boolean", "default": true }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

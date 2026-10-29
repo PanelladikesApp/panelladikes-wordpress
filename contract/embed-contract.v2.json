@@ -1,0 +1,30 @@
+{
+  "contract": "panelladikes-embed",
+  "version": 2,
+  "origin": "https://panelladikes.edu.gr",
+  "script": "/js/embed.v2.js",
+  "iframePath": "/embed/v2/",
+  "types": ["calculator", "baseis", "program", "sxoli", "mixanografiko"],
+  "attributes": {
+    "edu": { "enum": ["gel", "epal"], "default": "gel" },
+    "theme": { "enum": ["auto", "light", "dark"], "default": "auto" },
+    "id": { "min": 1, "max": 999999, "types": ["sxoli"] },
+    "pedio": { "min": 1, "max": 4, "edu": ["gel"] },
+    "width": { "default": "100%", "px": { "min": 200, "max": 2000 }, "percent": { "min": 10, "max": 100 } },
+    "align": { "enum": ["left", "center", "right"], "default": "left" },
+    "height": { "min": 200, "max": 10000 },
+    "radius": { "min": 0, "max": 48, "default": 12 },
+    "shadow": { "enum": ["none", "sm", "md", "lg"], "default": "none" },
+    "border": { "default": false },
+    "lazy": { "default": true }
+  },
+  "defaultHeight": { "calculator": 720, "baseis": "auto", "program": "auto", "sxoli": "auto", "mixanografiko": 720 },
+  "minHeight": { "calculator": 560, "baseis": 560, "program": 480, "sxoli": 560, "mixanografiko": 640 },
+  "titles": {
+    "calculator": { "gel": "Υπολογισμός μορίων ΓΕΛ, από το panelladikes.edu.gr", "epal": "Υπολογισμός μορίων ΕΠΑΛ, από το panelladikes.edu.gr" },
+    "baseis": { "gel": "Βάσεις εισαγωγής ΓΕΛ, από το panelladikes.edu.gr", "epal": "Βάσεις εισαγωγής ΕΠΑΛ, από το panelladikes.edu.gr" },
+    "program": { "gel": "Πρόγραμμα εξετάσεων ΓΕΛ, από το panelladikes.edu.gr", "epal": "Πρόγραμμα εξετάσεων ΕΠΑΛ, από το panelladikes.edu.gr" },
+    "sxoli": { "gel": "Στοιχεία σχολής ΓΕΛ, από το panelladikes.edu.gr", "epal": "Στοιχεία σχολής ΕΠΑΛ, από το panelladikes.edu.gr" },
+    "mixanografiko": { "gel": "Μηχανογραφικό ΓΕΛ, από το panelladikes.edu.gr", "epal": "Μηχανογραφικό ΕΠΑΛ, από το panelladikes.edu.gr" }
+  }
+}

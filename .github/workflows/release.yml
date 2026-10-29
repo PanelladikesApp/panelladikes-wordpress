@@ -1,0 +1,152 @@
+name: Release
+
+# Runs when a version tag such as v1.0.1 is pushed. It checks the version,
+# runs every check, builds the package and creates a DRAFT release holding
+# panelladikes-widgets.zip and its SHA-256. The signed update.json is added
+# to the draft by hand before the release is published.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Check and build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      TAG: ${{ github.ref_name }}
+      WP_CLI_VERSION: 2.12.0
+      WP_CLI_SHA512: be928f6b8ca1e8dfb9d2f4b75a13aa4aee0896f8a9a0a1c45cd5d2c98605e6172e6d014dda2e27f88c98befc16c040cbb2bd1bfa121510ea5cdf5f6a30fe8832
+    steps:
+      - name: Check out the tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Check that the tagged commit is on main
+        run: |
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+
+      - name: Check that the tag matches the version of the plugin
+        run: node scripts/check-version.mjs "$TAG"
+
+      - name: Install PHP dependencies
+        run: |
+          php --version
+          composer install --no-interaction --no-progress --prefer-dist
+
+      - name: PHP coding standards
+        run: composer lint
+
+      - name: PHP tests
+        run: composer test
+
+      - name: Install JavaScript dependencies
+        run: npm ci --ignore-scripts
+
+      - name: JavaScript lint
+        run: npm run lint:js
+
+      - name: JavaScript tests and contract check
+        run: npm test
+
+      - name: Build the block
+        run: npm run build
+
+      - name: Download WP-CLI and verify its checksum
+        run: |
+          curl --fail --silent --show-error --location \
+            "https://github.com/wp-cli/wp-cli/releases/download/v${WP_CLI_VERSION}/wp-cli-${WP_CLI_VERSION}.phar" \
+            --output "$RUNNER_TEMP/wp-cli.phar"
+          echo "${WP_CLI_SHA512}  $RUNNER_TEMP/wp-cli.phar" | sha512sum --check -
+
+      - name: Compile the translations
+        run: WP_CLI_PHAR="$RUNNER_TEMP/wp-cli.phar" sh scripts/make-translations.sh
+
+      - name: Build the package
+        run: sh scripts/build-package.sh "$RUNNER_TEMP/package"
+
+      - name: Check the package version
+        run: |
+          unzip -p "$RUNNER_TEMP/package/panelladikes-widgets.zip" panelladikes-widgets/panelladikes-widgets.php \
+            | grep --quiet --extended-regexp "^ \* Version:[[:space:]]+${TAG#v}\$"
+
+      - name: Keep the package for the release job
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: package
+          path: |
+            ${{ runner.temp }}/package/panelladikes-widgets.zip
+            ${{ runner.temp }}/package/panelladikes-widgets.zip.sha256
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    name: Create the draft release
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: release
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ github.ref_name }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Get the package
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: package
+          path: package
+
+      - name: Check the checksum
+        working-directory: package
+        run: sha256sum --check panelladikes-widgets.zip.sha256
+
+      - name: Check that the tag still points at the built commit
+        env:
+          BUILT_SHA: ${{ github.sha }}
+        run: |
+          set -eu
+          object_type=$(gh api "repos/${GH_REPO}/git/ref/tags/${TAG}" --jq '.object.type')
+          object_sha=$(gh api "repos/${GH_REPO}/git/ref/tags/${TAG}" --jq '.object.sha')
+          if [ "$object_type" = "tag" ]; then
+            object_sha=$(gh api "repos/${GH_REPO}/git/tags/${object_sha}" --jq '.object.sha')
+          fi
+          if [ "$object_sha" != "$BUILT_SHA" ]; then
+            echo "The tag no longer points at the commit that was built." >&2
+            exit 1
+          fi
+
+      - name: Create the draft release
+        run: |
+          printf '%s\n' \
+            "Install from panelladikes-widgets.zip below, not from the automatic \"Source code\" archives." \
+            "" \
+            "SHA-256: $(cut -d' ' -f1 package/panelladikes-widgets.zip.sha256)" \
+            > notes.txt
+          gh release create "$TAG" \
+            --draft \
+            --verify-tag \
+            --title "$TAG" \
+            --notes-file notes.txt \
+            package/panelladikes-widgets.zip \
+            package/panelladikes-widgets.zip.sha256

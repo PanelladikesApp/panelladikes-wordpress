@@ -1,0 +1,27 @@
+name: Πρόταση / Feature request
+description: Προτείνετε μια βελτίωση ή μια νέα δυνατότητα για το plugin.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Αυτή η φόρμα αφορά τον κώδικα του plugin. Για ερωτήσεις για τα δεδομένα ή τα widget γράψτε στο info@panelladikes.edu.gr. Μπορείτε να γράψετε στα ελληνικά ή στα αγγλικά.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Ποιο πρόβλημα λύνει;
+      description: Περιγράψτε τι προσπαθείτε να κάνετε και τι σας εμποδίζει.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Τι προτείνετε;
+      description: Περιγράψτε τη λύση που θα θέλατε.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Εναλλακτικές
+      description: Άλλες λύσεις ή τρόποι που δοκιμάσατε.

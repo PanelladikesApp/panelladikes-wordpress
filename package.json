@@ -1,0 +1,28 @@
+{
+	"name": "panelladikes-widgets",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Embed the Panelladikes widgets in WordPress with a block or a shortcode.",
+	"license": "GPL-2.0-or-later",
+	"engines": {
+		"node": ">=20"
+	},
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"contract:check": "node scripts/contract-check.mjs",
+		"lint:js": "wp-scripts lint-js src",
+		"format": "wp-scripts format src",
+		"test:js": "wp-scripts test-unit-js --testPathPattern=src/test",
+		"test": "npm run contract:check && npm run test:scripts && npm run test:js",
+		"i18n": "sh scripts/make-translations.sh",
+		"test:scripts": "node --test scripts/sign-release.test.mjs scripts/check-zip.test.mjs"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^10.39.0",
+		"@wordpress/scripts": "^30.0.0"
+	},
+	"overrides": {
+		"typescript": "~5.9.3"
+	}
+}

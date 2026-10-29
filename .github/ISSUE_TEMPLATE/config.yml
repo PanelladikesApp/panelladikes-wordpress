@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ερωτήσεις για τα δεδομένα ή τα widget / Questions about the data or the widgets
+    url: mailto:info@panelladikes.edu.gr
+    about: Για ερωτήσεις για τα δεδομένα, τα widget ή την προσαρμογή εμφάνισης (White-Label) γράψτε στο info@panelladikes.edu.gr.
+  - name: Αναφορά ευπάθειας / Report a vulnerability
+    url: https://github.com/PanelladikesApp/panelladikes-wordpress/security/advisories/new
+    about: Για ζητήματα ασφαλείας μην ανοίγετε δημόσιο issue. Χρησιμοποιήστε την ιδιωτική αναφορά.

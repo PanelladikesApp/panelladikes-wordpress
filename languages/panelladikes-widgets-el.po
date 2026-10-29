@@ -1,0 +1,289 @@
+# Greek translation of Panelladikes Widgets.
+# This file is distributed under the same license as the plugin (GPL-2.0-or-later).
+msgid ""
+msgstr ""
+"Project-Id-Version: Panelladikes Widgets 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/PanelladikesApp/panelladikes-wordpress/issues\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: panelladikes-widgets\n"
+
+#. Plugin Name of the plugin
+msgid "Panelladikes Widgets"
+msgstr "Panelladikes Widgets"
+
+#. Description of the plugin
+msgid "Embed the Panelladikes widgets (points calculator, admission bases, exam schedule, school details, Mixanografiko) with a block or a shortcode."
+msgstr "Εμφανίστε τα widget των Πανελλαδικών (υπολογισμός μορίων, βάσεις εισαγωγής, πρόγραμμα εξετάσεων, στοιχεία σχολής, Μηχανογραφικό) με ένα block ή με shortcode."
+
+#: src/block.json
+msgctxt "block title"
+msgid "Panelladikes Widget"
+msgstr "Widget Πανελλαδικών"
+
+#: src/block.json
+msgctxt "block description"
+msgid "Show a Panelladikes widget: points calculator, admission bases, exam schedule, school details or Mixanografiko."
+msgstr "Εμφανίστε ένα widget των Πανελλαδικών: υπολογισμός μορίων, βάσεις εισαγωγής, πρόγραμμα εξετάσεων, στοιχεία σχολής ή Μηχανογραφικό."
+
+#: src/block.json
+msgctxt "block keyword"
+msgid "panelladikes"
+msgstr "πανελλαδικές"
+
+#: src/block.json
+msgctxt "block keyword"
+msgid "calculator"
+msgstr "υπολογισμός μορίων"
+
+#: src/block.json
+msgctxt "block keyword"
+msgid "bases"
+msgstr "βάσεις"
+
+#: src/block.json
+msgctxt "block keyword"
+msgid "school"
+msgstr "σχολή"
+
+#: src/block.json
+msgctxt "block keyword"
+msgid "exams"
+msgstr "εξετάσεις"
+
+#: src/edit.js
+msgid "Points calculator"
+msgstr "Υπολογισμός μορίων"
+
+#: src/edit.js
+msgid "Admission bases"
+msgstr "Βάσεις εισαγωγής"
+
+#: src/edit.js
+msgid "Exam schedule"
+msgstr "Πρόγραμμα εξετάσεων"
+
+#: src/edit.js
+msgid "School details"
+msgstr "Στοιχεία σχολής"
+
+#: src/edit.js
+msgid "Mixanografiko"
+msgstr "Μηχανογραφικό"
+
+#: src/edit.js
+msgid "General Lyceum (GEL)"
+msgstr "Γενικό Λύκειο (ΓΕΛ)"
+
+#: src/edit.js
+msgid "Vocational Lyceum (EPAL)"
+msgstr "Επαγγελματικό Λύκειο (ΕΠΑΛ)"
+
+#: src/edit.js
+msgid "Automatic"
+msgstr "Αυτόματο"
+
+#: src/edit.js
+msgid "Light"
+msgstr "Φωτεινό"
+
+#: src/edit.js
+msgid "Dark"
+msgstr "Σκούρο"
+
+#: src/edit.js
+msgid "Left"
+msgstr "Αριστερά"
+
+#: src/edit.js
+msgid "Center"
+msgstr "Κέντρο"
+
+#: src/edit.js
+msgid "Right"
+msgstr "Δεξιά"
+
+#: src/edit.js
+msgid "None"
+msgstr "Καμία"
+
+#: src/edit.js
+msgid "Small"
+msgstr "Μικρή"
+
+#: src/edit.js
+msgid "Medium"
+msgstr "Μεσαία"
+
+#: src/edit.js
+msgid "Large"
+msgstr "Μεγάλη"
+
+#: src/edit.js
+msgid "Widget"
+msgstr "Widget"
+
+#: src/edit.js
+msgid "Widget type"
+msgstr "Τύπος widget"
+
+#: src/edit.js
+msgid "School type"
+msgstr "Τύπος σχολείου"
+
+#: src/edit.js
+msgid "School number"
+msgstr "Αριθμός σχολής"
+
+#: src/edit.js
+msgid "Filled in when you pick a school above. You can also type it."
+msgstr "Συμπληρώνεται όταν διαλέξετε σχολή παραπάνω. Μπορείτε και να τον πληκτρολογήσετε."
+
+#: src/edit.js
+msgid "Exam field"
+msgstr "Πεδίο"
+
+#: src/edit.js
+msgid "Not set"
+msgstr "Δεν έχει οριστεί"
+
+#. translators: %d: field number, 1 to 4
+#: src/edit.js
+msgid "Field %d"
+msgstr "Πεδίο %d"
+
+#: src/edit.js
+msgid "Appearance"
+msgstr "Εμφάνιση"
+
+#: src/edit.js
+msgid "Theme"
+msgstr "Θέμα"
+
+#: src/edit.js
+msgid "Width"
+msgstr "Πλάτος"
+
+#: src/edit.js
+msgid "Full width"
+msgstr "Πλήρες πλάτος"
+
+#: src/edit.js
+msgid "Pixels"
+msgstr "Pixel"
+
+#: src/edit.js
+msgid "Percent"
+msgstr "Ποσοστό"
+
+#: src/edit.js
+msgid "Width in pixels"
+msgstr "Πλάτος σε pixel"
+
+#: src/edit.js
+msgid "Width in percent"
+msgstr "Πλάτος σε ποσοστό"
+
+#: src/edit.js
+msgid "Alignment"
+msgstr "Στοίχιση"
+
+#: src/edit.js
+msgid "Height"
+msgstr "Ύψος"
+
+#: src/edit.js
+msgid "Default for this widget"
+msgstr "Προεπιλογή του widget"
+
+#: src/edit.js
+msgid "Fit the content"
+msgstr "Προσαρμογή στο περιεχόμενο"
+
+#: src/edit.js
+msgid "Fixed (pixels)"
+msgstr "Σταθερό (pixel)"
+
+#: src/edit.js
+msgid "Height in pixels"
+msgstr "Ύψος σε pixel"
+
+#: src/edit.js
+msgid "Corner radius"
+msgstr "Καμπυλότητα γωνιών"
+
+#: src/edit.js
+msgid "Shadow"
+msgstr "Σκιά"
+
+#: src/edit.js
+msgid "Border"
+msgstr "Περίγραμμα"
+
+#: src/edit.js
+msgid "Load when scrolled into view"
+msgstr "Φόρτωση όταν εμφανιστεί στην οθόνη"
+
+#: src/edit.js
+msgid "Choose a school in the block settings to see the widget."
+msgstr "Διαλέξτε σχολή στις ρυθμίσεις του block για να δείτε το widget."
+
+#: src/school-search.js
+msgid "Search for a school"
+msgstr "Αναζήτηση σχολής"
+
+#: src/school-search.js
+msgid "Searching…"
+msgstr "Αναζήτηση…"
+
+#: src/school-search.js
+msgid "No schools found."
+msgstr "Δεν βρέθηκαν σχολές."
+
+#: src/school-search.js
+msgid "The search is not available right now. Enter the school number below instead."
+msgstr "Η αναζήτηση δεν είναι διαθέσιμη αυτή τη στιγμή. Πληκτρολογήστε τον αριθμό της σχολής παρακάτω."
+
+#: src/preview.js
+msgid "The preview could not be loaded. The widget will still appear on the page."
+msgstr "Δεν ήταν δυνατή η φόρτωση της προεπισκόπησης. Το widget θα εμφανίζεται κανονικά στη σελίδα."
+
+#: includes/updater/class-verifier.php
+#: includes/updater/class-updater.php
+msgid "The update could not be verified."
+msgstr "Δεν ήταν δυνατός ο έλεγχος της ενημέρωσης."
+
+#: includes/updater/class-verifier.php
+msgid "The downloaded update does not match its checksum and was not installed."
+msgstr "Η ενημέρωση που λήφθηκε δεν συμφωνεί με το άθροισμα ελέγχου και δεν εγκαταστάθηκε."
+
+#: includes/updater/class-verifier.php
+msgid "The signature of the downloaded update is not valid and it was not installed."
+msgstr "Η υπογραφή της ενημέρωσης που λήφθηκε δεν είναι έγκυρη και η ενημέρωση δεν εγκαταστάθηκε."
+
+#: includes/updater/class-updater.php
+msgid "The update could not be downloaded."
+msgstr "Δεν ήταν δυνατή η λήψη της ενημέρωσης."
+
+#: includes/class-privacy.php
+msgid "Pages of this site that contain a Panelladikes widget load a script and the widget itself from panelladikes.edu.gr. Your browser contacts panelladikes.edu.gr directly, which receives the usual details of a web request (for example your IP address and browser) and the address (origin) of the site you are visiting, and uses it to apply the settings of that site. It counts views per site, widget type and school system, without your IP address, browser details, the full page address or any identifier of you. This site itself stores no data about it."
+msgstr "Οι σελίδες αυτού του site που περιέχουν widget των Πανελλαδικών φορτώνουν ένα script και το ίδιο το widget από το panelladikes.edu.gr. Ο browser σας επικοινωνεί απευθείας με το panelladikes.edu.gr, το οποίο λαμβάνει τα συνήθη στοιχεία ενός αιτήματος ιστού (για παράδειγμα τη διεύθυνση IP και τον browser σας) και τη διεύθυνση (origin) του site που επισκέπτεστε, και τη χρησιμοποιεί για να εφαρμόσει τις ρυθμίσεις του site. Μετρά προβολές ανά site, τύπο widget και σύστημα, χωρίς τη διεύθυνση IP σας, στοιχεία του browser, την πλήρη διεύθυνση της σελίδας ή αναγνωριστικό δικό σας. Το ίδιο το site δεν αποθηκεύει δεδομένα γι' αυτό."
+
+#: includes/class-privacy.php
+msgid "If a page contains the Mixanografiko widget, the list of schools you build is kept in the local storage of your browser for panelladikes.edu.gr, not for this site. The widget can send the list to your email address only when the service has turned this on. In that case the form sends the list of schools, the school system, the field or sector, the email address you enter, your language and, only if you tick a separate option, a newsletter subscription together with the version of the consent text. No name or grades are sent. Your browser sends this directly to the database of panelladikes.edu.gr (Google Firebase), protected by Google App Check and reCAPTCHA Enterprise, which load scripts from Google. The data does not pass through this site and is not sent to its owner. After sending, only a masked email address is kept in your browser. The widget itself explains how the email address is used."
+msgstr "Αν μια σελίδα περιέχει το widget Μηχανογραφικό, η λίστα σχολών που φτιάχνετε αποθηκεύεται στο local storage του browser σας για το panelladikes.edu.gr και όχι για αυτό το site. Το widget μπορεί να στείλει τη λίστα στη διεύθυνση email σας μόνο όταν η υπηρεσία το έχει ενεργοποιήσει. Σε αυτή την περίπτωση η φόρμα στέλνει τη λίστα σχολών, το σύστημα, το πεδίο ή τομέα, τη διεύθυνση email που εισάγετε, τη γλώσσα σας και, μόνο αν επιλέξετε ξεχωριστά, εγγραφή σε newsletter μαζί με την έκδοση του κειμένου συναίνεσης. Δεν στέλνονται όνομα ή βαθμοί. Ο browser σας τα στέλνει απευθείας στη βάση του panelladikes.edu.gr (Google Firebase), με προστασία Google App Check και reCAPTCHA Enterprise, που φορτώνουν scripts της Google. Τα δεδομένα δεν περνούν από αυτό το site και δεν αποστέλλονται στον ιδιοκτήτη του. Μετά την αποστολή, στον browser σας μένει μόνο μασκαρισμένο email. Το ίδιο το widget εξηγεί πώς χρησιμοποιείται η διεύθυνση email."
+
+#: includes/class-privacy.php
+msgid "The plugin sets no cookies and runs no analytics. The Google services of the email form of the Mixanografiko widget (reCAPTCHA, App Check) may set cookies or use local storage. As a rule the script and the widgets are loaded from panelladikes.edu.gr; if the appearance of a site has been customized, images, fonts or stylesheets may also be loaded from other sources. The plugin creates no options and keeps only one temporary transient of its update check, which is removed when the plugin is deleted."
+msgstr "Το plugin δεν βάζει cookies και δεν κάνει analytics. Οι υπηρεσίες Google της φόρμας email του widget Μηχανογραφικό (reCAPTCHA, App Check) μπορεί να βάζουν cookies ή να χρησιμοποιούν τοπική αποθήκευση. Κατά κανόνα το script και τα widget φορτώνονται από το panelladikes.edu.gr· αν η εμφάνιση του site έχει προσαρμοστεί, μπορεί να φορτώνονται εικόνες, γραμματοσειρές ή stylesheets και από άλλες πηγές. Το plugin δεν δημιουργεί options και κρατά μόνο ένα προσωρινό transient για τον έλεγχο ενημερώσεων, που σβήνεται κατά την απεγκατάσταση."
+
+#: includes/updater/class-updater.php
+msgid "The update information has changed. Check for updates again and retry."
+msgstr "Οι πληροφορίες της ενημέρωσης άλλαξαν. Ελέγξτε ξανά για ενημερώσεις και δοκιμάστε πάλι."
+
+#: includes/updater/class-updater.php
+msgid "The update is not newer than the installed version and was not installed."
+msgstr "Η ενημέρωση δεν είναι νεότερη από την εγκατεστημένη έκδοση και δεν εγκαταστάθηκε."

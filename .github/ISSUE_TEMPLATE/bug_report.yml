@@ -1,0 +1,54 @@
+name: Αναφορά σφάλματος / Bug report
+description: Κάτι δεν λειτουργεί όπως περιμένετε στο plugin.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ευχαριστούμε για την αναφορά. Αυτή η φόρμα αφορά τον κώδικα του plugin. Για ερωτήσεις για τα δεδομένα ή τα widget γράψτε στο info@panelladikes.edu.gr. Για ζήτημα ασφαλείας δείτε το SECURITY.md και μην ανοίξετε δημόσιο issue. Μπορείτε να γράψετε στα ελληνικά ή στα αγγλικά.
+  - type: textarea
+    id: description
+    attributes:
+      label: Τι συμβαίνει;
+      description: Περιγράψτε το πρόβλημα και τι περιμένατε να γίνει.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Βήματα αναπαραγωγής
+      description: Αν γίνεται, γράψτε το shortcode ή τις ρυθμίσεις του block που χρησιμοποιήσατε.
+      placeholder: |
+        1. …
+        2. …
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Έκδοση του plugin
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: wp-version
+    attributes:
+      label: Έκδοση WordPress
+    validations:
+      required: true
+  - type: input
+    id: php-version
+    attributes:
+      label: Έκδοση PHP
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Θέμα (theme), page builder και browser
+      description: Για παράδειγμα «Twenty Twenty-Five, Gutenberg, Firefox».
+  - type: textarea
+    id: extra
+    attributes:
+      label: Επιπλέον πληροφορίες
+      description: Μηνύματα σφάλματος, στιγμιότυπα οθόνης, plugins cache ή βελτιστοποίησης που χρησιμοποιείτε.
