@@ -2,7 +2,7 @@
 
 Όλες οι αξιόλογες αλλαγές του project καταγράφονται εδώ. Η μορφή βασίζεται στο [Keep a Changelog](https://keepachangelog.com/el/1.1.0/) και το project ακολουθεί [Semantic Versioning](https://semver.org/lang/el/).
 
-## [1.0.0] - Unreleased
+## [1.0.0] - 2026-10-29
 
 ### Προστέθηκαν
 
