@@ -1,3 +1,4 @@
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { loadEmbedScript, EMBED_SCRIPT_URL } from '../lib/embed-script';
 
 const scripts = () =>
@@ -23,13 +24,13 @@ describe( 'loadEmbedScript', () => {
 		expect( first ).toBe( second );
 		expect( scripts() ).toHaveLength( 1 );
 		expect( scripts()[ 0 ].src ).toBe( EMBED_SCRIPT_URL );
-		window.PanelladikesEmbed = { render: jest.fn() };
+		window.PanelladikesEmbed = { render: vi.fn() };
 		scripts()[ 0 ].onload();
 		await expect( first ).resolves.toBe( window.PanelladikesEmbed );
 	} );
 
 	it( 'does not add the script when it is already there', async () => {
-		window.PanelladikesEmbed = { render: jest.fn() };
+		window.PanelladikesEmbed = { render: vi.fn() };
 		await loadEmbedScript( document );
 		expect( scripts() ).toHaveLength( 0 );
 	} );
@@ -41,7 +42,7 @@ describe( 'loadEmbedScript', () => {
 		expect( scripts() ).toHaveLength( 0 );
 		const retry = loadEmbedScript( document );
 		expect( scripts() ).toHaveLength( 1 );
-		window.PanelladikesEmbed = { render: jest.fn() };
+		window.PanelladikesEmbed = { render: vi.fn() };
 		scripts()[ 0 ].onload();
 		await expect( retry ).resolves.toBeDefined();
 	} );

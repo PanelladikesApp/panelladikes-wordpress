@@ -34,3 +34,5 @@ CHANGELOG.md
 .idea
 .vscode
 *.log
+vitest.config.mjs
+.npmrc

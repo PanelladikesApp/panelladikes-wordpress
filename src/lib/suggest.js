@@ -12,7 +12,7 @@ export const DEBOUNCE_MS = 300;
 /**
  * Collapse whitespace and cap the length of a search text.
  *
- * @param {*} query Raw text.
+ * @param {unknown} query Raw text.
  * @return {string} Clean text.
  */
 export const normalizeQuery = ( query ) =>
@@ -40,7 +40,7 @@ export function suggestUrl( query, edu ) {
 /**
  * Turn a service answer into [{ id, title, subtitle }]. Anything that is not a school with a title is ignored.
  *
- * @param {*} json Decoded answer.
+ * @param {unknown} json Decoded answer.
  * @return {Array<{id:number,title:string,subtitle:string}>} Schools.
  */
 export function parseSuggest( json ) {

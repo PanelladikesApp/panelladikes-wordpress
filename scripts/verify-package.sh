@@ -9,8 +9,9 @@
 # WP_CLI_PHAR points to a WP-CLI phar (as in the release workflow), otherwise
 # the committed ones are used. Set ALLOW_DIRTY=1 to skip the clean-checkout check.
 #
-# The zip files themselves can differ byte for byte (time stamps), so the
-# comparison is of the file lists and of the SHA-256 of every file.
+# The comparison is of the file lists and of the SHA-256 of every file. Only the
+# compiled translations (languages/*.mo and *.json) are compared by content, because
+# the tool that builds them writes the time of the build inside (see compare-dirs.sh).
 set -eu
 
 [ $# -eq 1 ] && [ -f "$1" ] || { echo "Usage: sh scripts/verify-package.sh <panelladikes-widgets.zip of the draft>" >&2; exit 1; }
@@ -42,19 +43,5 @@ mkdir "$WORK/draft" "$WORK/mine"
 unzip -q "$DRAFT" -d "$WORK/draft"
 unzip -q "$WORK/rebuilt/panelladikes-widgets.zip" -d "$WORK/mine"
 
-listing() {
-	(cd "$1" && find . -type f | sort | while read -r file; do
-		printf '%s  %s\n' "$(node -e 'const c=require("node:crypto"),f=require("node:fs");process.stdout.write(c.createHash("sha256").update(f.readFileSync(process.argv[1])).digest("hex"))' "$file")" "$file"
-	done)
-}
-listing "$WORK/draft" > "$WORK/draft.txt"
-listing "$WORK/mine" > "$WORK/mine.txt"
-
-if diff "$WORK/draft.txt" "$WORK/mine.txt" > "$WORK/diff.txt"; then
-	echo "The draft package matches this checkout: $(wc -l < "$WORK/draft.txt" | tr -d ' ') files, same names and same SHA-256."
-	echo "Zip SHA-256 of the draft: $(node -e 'const c=require("node:crypto"),f=require("node:fs");process.stdout.write(c.createHash("sha256").update(f.readFileSync(process.argv[1])).digest("hex"))' "$DRAFT")"
-else
-	echo "The draft package DIFFERS from this checkout. Do not sign it." >&2
-	cat "$WORK/diff.txt" >&2
-	exit 1
-fi
+sh scripts/compare-dirs.sh "$WORK/draft" "$WORK/mine"
+echo "Zip SHA-256 of the draft: $(node -e 'const c=require("node:crypto"),f=require("node:fs");process.stdout.write(c.createHash("sha256").update(f.readFileSync(process.argv[1])).digest("hex"))' "$DRAFT")"

@@ -129,7 +129,7 @@
 
 ## Ανάπτυξη
 
-Απαιτούνται PHP 8.2+, [Composer](https://getcomposer.org), Node.js 20+ και, για το τοπικό περιβάλλον WordPress, Docker.
+Απαιτούνται PHP 8.2+, [Composer](https://getcomposer.org), Node.js 20+ και, για το τοπικό περιβάλλον WordPress, Docker. Το repo περιέχει `.npmrc` με `legacy-peer-deps=true`, που χρειάζεται για το `npm ci` και το `npm install`.
 
 ```bash
 composer install
@@ -141,7 +141,7 @@ npm run build
 |---|---|
 | `npm run build` | Κατασκευάζει το block στον φάκελο `build/`. |
 | `npm start` | Κατασκευή σε λειτουργία παρακολούθησης. |
-| `npm test` | Ελέγχει το contract και τρέχει τα τεστ JavaScript. |
+| `npm test` | Ελέγχει το contract και τρέχει τα τεστ των scripts και τα τεστ JavaScript (Vitest). |
 | `npm run lint:js` | Έλεγχος JavaScript. |
 | `npm run i18n` | Μεταγλώττιση των ελληνικών μεταφράσεων σε `.mo` και `.json` (μετά το `npm run build`· χρειάζεται `wp-env` ή `WP_CLI_PHAR`). |
 | `composer test` | Τεστ PHPUnit. |

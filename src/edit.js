@@ -143,7 +143,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										: __(
 												'Filled in when you pick a school above. You can also type it.',
 												'panelladikes-widgets'
-										  )
+											)
 								}
 								type="number"
 								min={ LIMITS.schoolId.min }
@@ -244,11 +244,11 @@ export default function Edit( { attributes, setAttributes } ) {
 										? __(
 												'Width in pixels',
 												'panelladikes-widgets'
-										  )
+											)
 										: __(
 												'Width in percent',
 												'panelladikes-widgets'
-										  )
+											)
 								}
 								type="number"
 								min={

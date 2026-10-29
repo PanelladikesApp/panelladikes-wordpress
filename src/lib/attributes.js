@@ -59,11 +59,11 @@ const toBool = ( value, fallback ) => {
 /**
  * Width: null for full width, "NNN" for pixels, "NN%" for a percentage.
  *
- * @param {*} value Raw value.
+ * @param {unknown} value Raw value.
  * @return {string|null} Normalized width.
  */
 export function normalizeWidth( value ) {
-	const text = String( typeof value === 'number' ? value : value ?? '' )
+	const text = String( typeof value === 'number' ? value : ( value ?? '' ) )
 		.trim()
 		.toLowerCase();
 	let match = /^(\d{1,4})(px)?$/.exec( text );
@@ -86,8 +86,8 @@ export function normalizeWidth( value ) {
 /**
  * Height in pixels, or null for automatic height.
  *
- * @param {string} type  Widget type.
- * @param {*}      value Raw value: empty for the default of the type, "auto", or pixels.
+ * @param {string}  type  Widget type.
+ * @param {unknown} value Raw value: empty for the default of the type, "auto", or pixels.
  * @return {number|null} Normalized height.
  */
 export function normalizeHeight( type, value ) {

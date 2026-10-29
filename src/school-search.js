@@ -14,9 +14,9 @@ import {
 /**
  * Search box for choosing a school.
  *
- * @param {Object}   props          Component props.
- * @param {string}   props.edu      "gel" or "epal".
- * @param {Function} props.onSelect Called with { id, title }.
+ * @param {Object}                                        props          Component props.
+ * @param {string}                                        props.edu      "gel" or "epal".
+ * @param {(item: { id: number, title: string }) => void} props.onSelect Called with the chosen school.
  */
 export default function SchoolSearch( { edu, onSelect } ) {
 	const [ query, setQuery ] = useState( '' );
@@ -44,7 +44,7 @@ export default function SchoolSearch( { edu, onSelect } ) {
 				const found = parseSuggest( await response.json() );
 				setItems( found );
 				setStatus( found.length ? 'ok' : 'empty' );
-			} catch ( error ) {
+			} catch {
 				if ( controller.signal.aborted ) {
 					return;
 				}

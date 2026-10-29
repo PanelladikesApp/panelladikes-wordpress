@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import blockJson from '../block.json';
 import contract from '../../contract/embed-contract.v2.json';
 import {
