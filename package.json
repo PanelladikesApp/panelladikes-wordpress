@@ -25,7 +25,7 @@
 		"@wordpress/compose": "^9.1.0",
 		"@wordpress/element": "^10.0.0",
 		"@wordpress/env": "^12.1.0",
-		"@wordpress/i18n": "^7.0.0",
+		"@wordpress/i18n": "^7.2.0",
 		"@wordpress/scripts": "^37.1.0",
 		"jsdom": "^31.0.1",
 		"vite": "^8.3.8",
